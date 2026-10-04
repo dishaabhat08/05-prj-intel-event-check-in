@@ -1,4 +1,4 @@
-/* Modern reset */
+/* reset default spacing */
 * {
   margin: 0;
   padding: 0;
@@ -13,27 +13,14 @@ body {
   min-height: 100vh;
 }
 
-/* Add form label styling */
-.form-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 15px;
-  color: #475569;
-  padding-left: 5px;
-  font-weight: 500;
-}
-
-/* Hero Section */
+/* hero section */
 .hero {
   background: linear-gradient(
-      135deg,
-      rgba(0, 153, 219, 0.9) 0%,
-      rgba(0, 104, 181, 0.9) 50%,
-      rgba(0, 60, 116, 0.9) 100%
-    ),
-    url("img/bg.jpg");
-  background-size: cover;
-  background-position: center;
+    135deg,
+    rgba(0, 153, 219, 0.9) 0%,
+    rgba(0, 104, 181, 0.9) 50%,
+    rgba(0, 60, 116, 0.9) 100%
+  );
   text-align: center;
   padding: 60px 32px;
   color: #fff;
@@ -46,9 +33,10 @@ body {
 }
 
 .intel-logo {
-  max-width: 100px;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -2px;
   margin-bottom: 25px;
-  filter: brightness(0) invert(1);
 }
 
 .hero h1 {
@@ -58,7 +46,6 @@ body {
   text-transform: uppercase;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
-  color: white;
 }
 
 .hero-divider {
@@ -72,10 +59,9 @@ body {
   font-size: 22px;
   letter-spacing: 1px;
   font-weight: 300;
-  color: white;
 }
 
-/* Main container */
+/* main container */
 .container {
   max-width: 700px;
   width: 90%;
@@ -87,7 +73,7 @@ body {
   text-align: center;
 }
 
-/* Check-in form */
+/* check-in form */
 .check-in {
   width: 100%;
   margin: 0 auto;
@@ -97,15 +83,32 @@ body {
   text-align: center;
 }
 
+.form-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 15px;
+  color: #475569;
+  padding-left: 5px;
+  font-weight: 500;
+}
+
 .form-group {
   display: flex;
   gap: 15px;
   width: 100%;
 }
 
-/* Form elements */
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
 input {
   flex: 1;
+  min-width: 0;
+  width: 100%;
   padding: 16px 20px;
   border: 2px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
@@ -114,13 +117,25 @@ input {
   background: white;
   color: #2c3e50;
   transition: all 0.3s ease;
-  outline: none;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 input:focus {
   border-color: #0071c5;
   box-shadow: 0 0 0 4px rgba(0, 113, 197, 0.15);
+}
+
+select {
+  padding: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  background: white;
+  color: #2c3e50;
+  cursor: pointer;
+  min-width: 0;
+  max-width: 100%;
 }
 
 button {
@@ -152,7 +167,12 @@ button:hover {
   white-space: nowrap;
 }
 
-/* Icon spacing */
+:focus-visible {
+  outline: 3px solid #0071c5;
+  outline-offset: 3px;
+}
+
+/* icon spacing */
 .fas {
   margin-right: 8px;
 }
@@ -162,23 +182,7 @@ button .fas {
   margin-right: 10px;
 }
 
-.attendance-header i {
-  font-size: 22px;
-  margin-right: 8px;
-}
-
-/* Attendance section spacing */
-.attendance-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 15px;
-  font-size: 17px;
-  color: #64748b;
-}
-
-/* Attendance tracker styling */
+/* attendance tracker */
 .attendance-tracker {
   max-width: 700px;
   width: 90%;
@@ -197,6 +201,12 @@ button .fas {
   color: #64748b;
 }
 
+.attendance-header i {
+  color: #0071c5;
+  font-size: 20px;
+  margin-right: 4px;
+}
+
 #attendeeCount {
   color: #0071c5;
   font-size: 24px;
@@ -204,19 +214,6 @@ button .fas {
   margin: 0 2px;
 }
 
-.attendance-header i {
-  color: #0071c5;
-  font-size: 20px;
-  margin-right: 4px;
-}
-
-/* Max attendees text */
-.attendance-header span:last-child {
-  color: #64748b;
-  font-size: 17px;
-}
-
-/* Progress container - simplified */
 .progress-container {
   width: 100%;
   max-width: 500px;
@@ -225,24 +222,17 @@ button .fas {
   border-radius: 10px;
   overflow: hidden;
   margin: 8px auto;
-  position: relative;
 }
 
 .progress-bar {
   width: 0%;
   height: 100%;
-  background-color: #0071c5;
-  background-image: linear-gradient(90deg, #0071c5, #00aeef);
+  background: linear-gradient(90deg, #0071c5, #00aeef);
   border-radius: 10px;
   transition: width 0.6s ease;
 }
 
-/* Adjust spacing between components */
-.container {
-  margin-top: 0;
-}
-
-/* Messages */
+/* greeting and celebration messages */
 #greeting {
   font-weight: 500;
   font-size: 18px;
@@ -253,58 +243,25 @@ button .fas {
   display: none;
 }
 
-.success-message {
-  background-color: #e8f4fc;
-  color: #003c71;
+#greeting:not(:empty) {
+  display: block;
+  background: #e8f4fc;
 }
 
-/* Counter */
-#attendeeCount {
-  color: #0071c5;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 2px;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-.footer-link {
-  color: #64748b;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  color: #0071c5;
-  text-decoration: underline;
-}
-
-/* Input wrapper for name and team select */
-.input-wrapper {
-  flex: 1;
-  display: flex;
-  gap: 10px;
-  min-width: 0;
-}
-
-select {
-  padding: 16px;
-  border: 2px solid rgba(0, 0, 0, 0.08);
+#celebration {
+  padding: 18px;
+  margin-bottom: 20px;
+  background: #fff1be;
   border-radius: 12px;
-  font-size: 17px;
-  font-weight: 500;
-  background: white;
-  color: #2c3e50;
-  cursor: pointer;
-  min-width: 140px;
+  color: #614b00;
 }
 
-/* Team Stats */
+#storageNotice {
+  color: #805000;
+  margin-bottom: 15px;
+}
+
+/* team counters */
 .team-stats {
   margin-top: 30px;
   padding-top: 30px;
@@ -331,13 +288,14 @@ select {
   gap: 5px;
 }
 
-/* Team card colors */
 .team-card.water {
   background-color: #e8f7fc;
 }
+
 .team-card.zero {
   background-color: #ecfdf3;
 }
+
 .team-card.power {
   background-color: #fff7ed;
 }
@@ -348,24 +306,86 @@ select {
   color: #475569;
 }
 
-/* Mobile responsive */
+.team-count {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0071c5;
+}
+
+/* attendee list */
+.attendee-list {
+  text-align: left;
+}
+
+.attendee-list h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #475569;
+}
+
+.attendee-list ul {
+  list-style: none;
+}
+
+.attendee-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  border-top: 1px solid #e5edf3;
+  overflow-wrap: anywhere;
+}
+
+.attendee-list li span:last-child {
+  color: #64748b;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.footer-link {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #0071c5;
+  text-decoration: underline;
+}
+
+/* adjust the layout for smaller screens */
 @media (max-width: 768px) {
   .hero {
     padding: 35px 20px;
   }
+
   .hero h1 {
-    font-size: 38px;
-  }
-  .container {
-    padding: 32px;
-    margin: 0 15px 30px;
+    font-size: 30px;
   }
 
-  .form-group {
+  .hero p {
+    font-size: 18px;
+  }
+
+  .container {
+    margin: 0 auto 24px;
+    padding: 22px;
+  }
+
+  .form-group,
+  .input-wrapper {
     flex-direction: column;
   }
 
   input,
+  select,
   button {
     width: 100%;
   }
@@ -374,11 +394,12 @@ select {
     height: 50px;
   }
 
-  .input-wrapper {
-    flex-direction: column;
-  }
-
   .teams-grid {
     grid-template-columns: 1fr;
+  }
+
+  .attendee-list li {
+    flex-direction: column;
+    gap: 4px;
   }
 }
